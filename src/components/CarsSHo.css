@@ -1,0 +1,15 @@
+#Car-Contenar {
+  display: inline-grid;
+  text-align: center;
+}
+img {
+  border: 50%;
+  width: 500px;
+  height: 500px;
+}
+.Main-Div {
+  text-align: center;
+}
+button {
+  font-size: larger;
+}
