@@ -5,9 +5,11 @@ const MSG = "please inter the car name";
 
 const InputName = (Event) => {
   // console.log(Event.target.value);
-  if (Event.target.value == "mazda 220") {
+  if (Event.target.value == "ca ") {
     // SetMsg("is alredy excist");
-    alert("the name is alredy excist");
+    console.log(Event.target.value);
+  } else {
+    console.log("no");
   }
 };
 
