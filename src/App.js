@@ -5,8 +5,9 @@ function App() {
   return (
     <div className="Main-Div">
       <div className="App">
-        {/* <MainDat /> */}
         <AddMoreItem />
+
+        <MainDat />
       </div>
     </div>
   );

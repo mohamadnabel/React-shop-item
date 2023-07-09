@@ -1,35 +1,64 @@
 import React, { useState } from "react";
 import "../components/AddMoreIT.css";
-const MSG = "please inter the car name";
-// const [Msgs, SetMsg] = useState(MSG);
 
-const InputName = (Event) => {
-  // console.log(Event.target.value);
-  if (Event.target.value == "ca ") {
-    // SetMsg("is alredy excist");
-    console.log(Event.target.value);
-  } else {
-    console.log("no");
-  }
-};
+function AddMoreItem() {
+  const [CarName, SetCarName] = useState("");
+  const [CarPrice, SetCarPrice] = useState("");
+  const [CarPicture, SetCarPicture] = useState("");
 
-const InputPrice = (Event) => {
-  // console.log(Event.target.value);
-  if (Event.target.value == 2500) {
-    console.log("good");
-  }
-};
-function AddMoreItem(props) {
+  const carNameHandelarFunction = (event) => {
+    SetCarName(event.target.value);
+  };
+  const carPriceHandelarFunction = (event) => {
+    SetCarPrice(event.target.value);
+  };
+  const carPictureHandelarFunction = (event) => {
+    SetCarPicture(event.target.value);
+  };
+  const DataFromUser = [];
+  const formSubmitHandeler = (event) => {
+    event.preventDefault();
+    const DataBase = {
+      theCarNameByUser: CarName,
+      theCarPriceByUser: CarPrice,
+      theCarImgByUser: CarPicture,
+    };
+    DataFromUser.push(DataBase);
+    SetCarName("");
+    SetCarPicture("");
+    SetCarPrice("");
+    console.log(DataFromUser);
+    console.log(DataBase);
+  };
+  const resetHandelerValue = (Event) => {
+    Event.preventDefault();
+    SetCarName("");
+    SetCarPicture("");
+    SetCarPrice("");
+  };
+
   return (
     <div>
-      <form>
-        <label>{MSG} </label>
+      <form onReset={resetHandelerValue} onSubmit={formSubmitHandeler}>
+        <label> please inter the car name</label>
         <br></br>
-        <input onChange={InputName} type="text" />
+        <input value={CarName} onChange={carNameHandelarFunction} type="text" />
         <br></br>
         <label>please inter the car price </label>
         <br></br>
-        <input onChange={InputPrice} type="number" />
+        <input
+          value={CarPrice}
+          onChange={carPriceHandelarFunction}
+          type="number"
+        />
+        <br></br>
+        <label> please inter the car File</label>
+        <br></br>
+        <input
+          value={CarPicture}
+          onChange={carPictureHandelarFunction}
+          type="file"
+        />
         <div>
           <button className="button-submit" type="submit">
             Submit
